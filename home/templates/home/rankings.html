@@ -1,0 +1,68 @@
+{% extends 'home/base.html' %}
+{%load static%}
+{% block content %}
+
+{% if user.is_authenticated%}
+<h1 style="text-align: center; font-size: 48px; color: white;">PERFORMANCE</h1>
+<div style="padding: 0;">
+    <table class="table table-bordered table-hover"
+           style="border-color: white; color: #F3FEA1; background-color: #000000; border-collapse: collapse; width: 90%; margin-left: auto; margin-right: auto;">
+        <thead style="background-color: #000000; color: #F3FEA1; border-bottom: 2px solid white;">
+            <tr>
+                <th style="border: 1px solid white;">Rating</th>
+                <th style="border: 1px solid white;">Wins</th>
+                <th style="border: 1px solid white;">Losses</th>
+                <th style="border: 1px solid white;">Win Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+
+                <tr style="background-color: {% cycle '#1a1a1a' '#333333' %}; color: #F3FEA1;"
+                    onmouseover="this.style.backgroundColor='#444444';"
+                    onmouseout="this.style.backgroundColor='{% cycle '#1a1a1a' '#333333' %}';">
+                    <td style="border: 1px solid white; font-size: 45px; font-weight: bold;">{{ player_rating }}</td>
+                    <td style="border: 1px solid white;font-size: 30px;">{{ win_count }}</td>
+                    <td style="border: 1px solid white; font-size: 30px;">{{ loss_count }}</td>
+                    <td style="border: 1px solid white; font-size: 30px;">{{ win_ratio }}</td>
+
+                </tr>
+
+        </tbody>
+    </table>
+</div>
+
+{%endif%}
+<h1 style="text-align: center; font-size: 48px; color: white;">BADMINTON CLUB RANKINGS</h1>
+<p style="text-align: center; font-size: 12px;">A player's official rank will only be visible after a completion of 10 matches.</p>
+<div style="padding: 0;">
+    <table class="table table-bordered table-hover"
+           style="border-color: white; color: #F3FEA1; background-color: #000000; border-collapse: collapse; width: 90%; margin-left: auto; margin-right: auto;">
+        <thead style="background-color: #000000; color: #F3FEA1; border-bottom: 2px solid white;">
+            <tr>
+                <th style="border: 1px solid white;">Seed</th>
+                <th style="border: 1px solid white;">Name</th>
+                <th style="border: 1px solid white;">Rating</th>
+                <th style="border: 1px solid white;">Matches</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in player_list %}
+                {% if player.matches >= 5 %}
+                    <tr style="background-color: {% cycle '#1a1a1a' '#333333' %}; color: #F3FEA1;"
+                        onmouseover="this.style.backgroundColor='#444444';"
+                        onmouseout="this.style.backgroundColor='{% cycle '#1a1a1a' '#333333' %}';">
+                        <td style="border: 1px solid white;">{{ forloop.counter }}</td>
+                        <td style="border: 1px solid white;">{{ player.first }} {{ player.last }}</td>
+                        <td style="border: 1px solid white;">{{ player.rank }}</td>
+                        <td style="border: 1px solid white;">{{ player.matches }}</td>
+                    </tr>
+                {% endif %}
+            {% empty %}
+                <tr style="background-color: #1a1a1a; color: #F3FEA1;">
+                    <td colspan="4" style="border: 1px solid white;">No Active Players.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1 style="text-align: center; font-size: 36px; margin-bottom: 40px;">Welcome To VCU Badminton</h1>
+<p style="text-align: center;">Here's a few pictures from our events!</p>
+<div class="image-grid">
+    <img src="{% static 'images/home1.png' %}" class="grid-img" onclick="openLightbox(this)">
+    <img src="{% static 'images/home2.png' %}" class="grid-img" onclick="openLightbox(this)">
+    <img src="{% static 'images/home4.png' %}" class="grid-img" onclick="openLightbox(this)">
+    <img src="{% static 'images/home6.png' %}" class="grid-img" onclick="openLightbox(this)">
+    <img src="{% static 'images/home7.png' %}" class="grid-img" onclick="openLightbox(this)">
+    <img src="{% static 'images/home5.png' %}" class="grid-img" onclick="openLightbox(this)">
+    <img src="{% static 'images/home3.png' %}" class="grid-img" onclick="openLightbox(this)">
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Full-size image">
+</div>
+
+<style>
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+}
+
+.grid-img {
+  width: 280px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.grid-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  cursor: zoom-out;
+}
+</style>
+
+<script>
+function openLightbox(img) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  lightboxImg.src = img.src;
+  lightbox.style.display = 'flex';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+</script>
+
+{% endblock %}

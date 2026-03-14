@@ -1,0 +1,30 @@
+{% extends 'home/base.html' %}
+{%load static%}
+{% block content %}
+<div class = "center-screen">
+    <h1>What is VCU Badminton about?</h1>
+
+    <div class="blurb1">
+        <img src="{% static 'images/about1.png' %}" alt="abou1">
+        <div class="blurb-text">
+            <h3>🏸 Competitive Play</h3>
+            <p>The VCU Badminton Club brings together students who love the game—whether you're aiming for intense competition or just learning.</p>
+        </div>
+    </div>
+
+    <div class="blurb2">
+        <div class="blurb-text">
+            <h3>🏆 Step Up to the Court</h3>
+            <p>Looking to sharpen your skills and play competitively? We’ve got you. From casual games to traveling for tournaments, the VCU Badminton Club gives you a chance to grow your game and be part of a team that values both focus and friendship.</p>
+        </div>
+        <img src="{% static 'images/about2.png' %}" alt="about2">
+    </div>
+    <div class="blurb3">
+        <img src="{% static 'images/about3.png' %}" alt="about3">
+        <div class="blurb-text">
+            <h3>🎯 Where Passion Meets Community</h3>
+            <p>Our club is all about improving together, competing with confidence, and enjoying every game along the way. Come for the challenge, stay for the community.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

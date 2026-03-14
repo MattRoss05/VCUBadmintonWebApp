@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<div class="center-wrapper">
+    <div class="login-container">
+      <h1>Match</h1>
+      <form method="POST" class="form-group">
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="button">Submit Match</button>
+      </form>
+      <div class="button-container">
+        <a href="{% url 'welcome' %}" class="button">Back</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

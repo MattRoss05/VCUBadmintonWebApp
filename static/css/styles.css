@@ -1,0 +1,220 @@
+
+body {
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.navbar {
+    background-color: #00A7B5;          /* Main navbar color */
+    border-bottom: 3% solid black;   /* Strong black underline */
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    justify-content: space-between;
+}
+
+
+
+.images{
+    display: flex;
+  
+}
+.images img{
+    margin-top: 6%;
+}
+@media (max-width: 768px) {
+    .images {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+}
+.navbar a {
+    text-decoration: none;
+    color: inherit;  /* So logo and nav links keep their colors */
+}
+
+.logo img {
+    height: 150px;
+}
+
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin-left: 40px;
+}
+
+.nav-links a {
+    color: black;                     /* Default text color */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    
+}
+
+.nav-links a:hover {
+    background-color: #F3FEA1;
+    transition: background-color 1.5s ease;       /* Yellow highlight on hover */
+    color: black;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin: 8px 0;  /* vertical margin between items */
+        /*margin-left: 0; /* reset horizontal margin */
+    }
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 40px;
+    padding: 20px;
+}
+
+.blurb1, .blurb2, .blurb3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    gap: 20px;
+}
+
+
+.blurb1 img,
+.blurb2 img,
+.blurb3 img {
+    max-height: 400px;
+    width: auto;
+    border-radius: 8px;
+
+}
+.blurb1 img, .blurb3 img{
+    margin-right: 15px;
+}
+.blurb2 img{
+    margin-left: 15px;
+}
+
+
+.blurb-text {
+    max-width: 700px;
+    text-align: left;
+    font-style: 100px;
+}
+
+@media (max-width: 768px) {
+    .blurb1 img,
+.blurb2 img,
+.blurb3 img {
+    max-height: 250px;
+    width: auto;
+    border-radius: 8px;
+}
+    .blurb1, .blurb3 {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+    }
+    .blurb2{
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+    .blurb-text {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .login-container {
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds spacing between children */
+    
+  }
+  
+  /* Space between form elements */
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  a.register-link {
+    color: white;
+    text-decoration: none;
+    padding: 4px 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  a.register-link:hover,
+  a.register-link:active {
+    background-color: #F3FEA1;
+    color: black;
+    border-radius: 4px;
+  }
+  
+  .button-container {
+    margin-top: 10px;
+    
+  }
+  
+  .button {
+    padding: 10px 15px;
+    background-color: white;
+    font-family: monospace, sans-serif;
+    font-weight: bold;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+  
+  .button:hover,
+  .button:active {
+    background-color: #F3FEA1;
+    color: black;
+  }
+
+  .no-bullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
